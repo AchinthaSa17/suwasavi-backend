@@ -16,10 +16,12 @@ public class BookingController {
     @Autowired
     private BookingRepository bookingRepository;
 
-    @PostMapping("/create")
+    // Remove "/create" if your Android Retrofit call is just @POST("api/bookings")
+    @PostMapping
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
-        // Set default status to PENDING as per your DB schema
-        booking.setStatus("PENDING");
+        if (booking.getStatus() == null) {
+            booking.setStatus("PENDING");
+        }
         return ResponseEntity.ok(bookingRepository.save(booking));
     }
 
@@ -27,4 +29,14 @@ public class BookingController {
     public List<Booking> getMyBookings(@PathVariable String uid) {
         return bookingRepository.findByFirebaseUid(uid);
     }
+
+    @PutMapping("/cancel/{id}")
+    public ResponseEntity<Void> cancelBooking(@PathVariable Long id) {
+        return bookingRepository.findById(id).map(booking -> {
+            booking.setStatus("CANCELLED");
+            bookingRepository.save(booking);
+            return ResponseEntity.ok().<Void>build();
+        }).orElse(ResponseEntity.notFound().build());
+    }
 }
+
