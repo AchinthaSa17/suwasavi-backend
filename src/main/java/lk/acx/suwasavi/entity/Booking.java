@@ -9,7 +9,7 @@ public class Booking {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String firebaseUid; // Added: Essential for linking Android users to their bookings
+    private String firebaseUid;
     private Long serviceId;
     private String serviceName;
     private String bookingDate;
@@ -17,12 +17,18 @@ public class Booking {
     private String address;
     private String status = "PENDING";
 
-    // Getters and Setters
-    public String getFirebaseUid() { return firebaseUid; }
-    public void setFirebaseUid(String firebaseUid) { this.firebaseUid = firebaseUid; }
+    // ADDED: To store the quotation price for Pharmacy or total for services
+    private double price = 0.0;
 
+    // Default Constructor
+    public Booking() {}
+
+    // Getters and Setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
+    public String getFirebaseUid() { return firebaseUid; }
+    public void setFirebaseUid(String firebaseUid) { this.firebaseUid = firebaseUid; }
 
     public Long getServiceId() { return serviceId; }
     public void setServiceId(Long serviceId) { this.serviceId = serviceId; }
@@ -41,4 +47,7 @@ public class Booking {
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }
+
+    public double getPrice() { return price; }
+    public void setPrice(double price) { this.price = price; }
 }

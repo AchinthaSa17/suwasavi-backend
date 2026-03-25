@@ -11,11 +11,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        String uploadPath = Paths.get("uploads").toAbsolutePath().toUri().toString();
-
-        // This maps http://your-url/images/filename.jpg
-        // to the physical file in the 'uploads' folder
+        // This ensures Spring looks into the physical folder correctly
         registry.addResourceHandler("/images/**")
-                .addResourceLocations(uploadPath);
+                .addResourceLocations("file:uploads/");
     }
 }

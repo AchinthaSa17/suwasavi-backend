@@ -16,9 +16,9 @@ public class BookingController {
     @Autowired
     private BookingRepository bookingRepository;
 
-    // Remove "/create" if your Android Retrofit call is just @POST("api/bookings")
     @PostMapping
     public ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
+        // If status isn't set by Android, default to PENDING
         if (booking.getStatus() == null) {
             booking.setStatus("PENDING");
         }
