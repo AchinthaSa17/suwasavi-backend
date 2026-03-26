@@ -8,46 +8,98 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String firebaseUid;
     private Long serviceId;
     private String serviceName;
     private String bookingDate;
     private String timeSlot;
     private String address;
-    private String status = "PENDING";
+    private String status; // "AWAITING_QUOTATION"
+    private double price;
+    private String prescriptionImageUrl; // This will store the filename
 
-    // ADDED: To store the quotation price for Pharmacy or total for services
-    private double price = 0.0;
+
 
     // Default Constructor
     public Booking() {}
 
-    // Getters and Setters
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getFirebaseUid() { return firebaseUid; }
-    public void setFirebaseUid(String firebaseUid) { this.firebaseUid = firebaseUid; }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-    public Long getServiceId() { return serviceId; }
-    public void setServiceId(Long serviceId) { this.serviceId = serviceId; }
+    public String getFirebaseUid() {
+        return firebaseUid;
+    }
 
-    public String getServiceName() { return serviceName; }
-    public void setServiceName(String serviceName) { this.serviceName = serviceName; }
+    public void setFirebaseUid(String firebaseUid) {
+        this.firebaseUid = firebaseUid;
+    }
 
-    public String getBookingDate() { return bookingDate; }
-    public void setBookingDate(String bookingDate) { this.bookingDate = bookingDate; }
+    public Long getServiceId() {
+        return serviceId;
+    }
 
-    public String getTimeSlot() { return timeSlot; }
-    public void setTimeSlot(String timeSlot) { this.timeSlot = timeSlot; }
+    public void setServiceId(Long serviceId) {
+        this.serviceId = serviceId;
+    }
 
-    public String getAddress() { return address; }
-    public void setAddress(String address) { this.address = address; }
+    public String getServiceName() {
+        return serviceName;
+    }
 
-    public String getStatus() { return status; }
-    public void setStatus(String status) { this.status = status; }
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
+    }
 
-    public double getPrice() { return price; }
-    public void setPrice(double price) { this.price = price; }
+    public String getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public String getTimeSlot() {
+        return timeSlot;
+    }
+
+    public void setTimeSlot(String timeSlot) {
+        this.timeSlot = timeSlot;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public String getPrescriptionImageUrl() {
+        return prescriptionImageUrl;
+    }
+
+    public void setPrescriptionImageUrl(String prescriptionImageUrl) {
+        this.prescriptionImageUrl = prescriptionImageUrl;
+    }
 }
