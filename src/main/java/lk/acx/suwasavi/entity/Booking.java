@@ -18,10 +18,12 @@ public class Booking {
     private double price;
     private String prescriptionImageUrl; // This will store the filename
 
-
+    private String fcmToken;
+    private String userName;
 
     // Default Constructor
-    public Booking() {}
+    public Booking() {
+    }
 
     public Long getId() {
         return id;
@@ -102,4 +104,14 @@ public class Booking {
     public void setPrescriptionImageUrl(String prescriptionImageUrl) {
         this.prescriptionImageUrl = prescriptionImageUrl;
     }
+
+    public String getFcmToken() {
+        return fcmToken;
+    }
+
+    public void setFcmToken(String fcmToken) {
+        this.fcmToken = fcmToken;
+    }
+    public String getUserName() { return userName; }
+    public void setUserName(String userName) { this.userName = userName; }
 }

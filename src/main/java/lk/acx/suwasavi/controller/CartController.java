@@ -22,6 +22,17 @@ public class CartController {
     @Autowired
     private BookingRepository bookingRepository;
 
+    @PostMapping("/add")
+    public ResponseEntity<?> addToCart(@RequestBody CartItem item) {
+        // Optional: Check if the item is already in the cart for this user
+        if (cartRepository.existsByFirebaseUidAndServiceId(item.getFirebaseUid(), item.getServiceId())) {
+            return ResponseEntity.status(409).body("Item already in cart");
+        }
+
+        CartItem savedItem = cartRepository.save(item);
+        return ResponseEntity.ok(savedItem);
+    }
+
     @PostMapping("/checkout/{uid}")
     @Transactional
     public ResponseEntity<Void> checkout(

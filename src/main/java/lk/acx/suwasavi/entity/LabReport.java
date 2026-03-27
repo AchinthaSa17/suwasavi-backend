@@ -23,13 +23,14 @@ public class LabReport {
 
     private String status;
     private String fileUrl;
+    private String remarks;
 
     // 1. MANDATORY: Default constructor for JPA
     public LabReport() {
     }
 
     // 2. Existing Constructor
-    public LabReport(Long id, String firebaseUid, String testName, String labName, String reportDate, String status, String fileUrl) {
+    public LabReport(Long id, String firebaseUid, String testName, String labName, String reportDate, String status, String fileUrl, String remarks) {
         this.id = id;
         this.firebaseUid = firebaseUid;
         this.testName = testName;
@@ -37,6 +38,7 @@ public class LabReport {
         this.reportDate = reportDate;
         this.status = status;
         this.fileUrl = fileUrl;
+        this.remarks = remarks;
     }
 
     // Getters and Setters (Keep these as they are)
@@ -54,4 +56,6 @@ public class LabReport {
     public void setStatus(String status) { this.status = status; }
     public String getFileUrl() { return fileUrl; }
     public void setFileUrl(String fileUrl) { this.fileUrl = fileUrl; }
+    public String getRemarks() { return remarks; }
+    public void setRemarks(String remarks) { this.remarks = remarks; }
 }
