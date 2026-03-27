@@ -5,7 +5,12 @@ target/
 !**/src/test/**/target/
 
 ### Firebase Keys ###
-serviceAccountKey.json
+# Ignores the key at the specific path
+src/main/resources/serviceAccountKey.json
+
+# Standard practice: ignore any JSON file starting with 'serviceAccountKey'
+# anywhere in the project
+**/serviceAccountKey*.json
 
 ### STS ###
 .apt_generated
